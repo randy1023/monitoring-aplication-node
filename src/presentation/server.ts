@@ -12,7 +12,7 @@ const fileSystemImpRepository = new LogImplRepository(
 const emailService = new EmailService();
 export class Server {
   public static start() {
-    console.log("Server started...");
+    console.log("Server started......");
 
     // SEND EMAIL
     // new SendEmailLogs(emailService, fileSystemImpRepository).execute(
