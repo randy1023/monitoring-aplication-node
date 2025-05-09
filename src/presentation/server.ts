@@ -22,15 +22,15 @@ export class Server {
     //   "testrunnify@gmail.com"
     // );
 
-    CronService.createJob("*/5 * * * * *", () => {
-      const url = "https://google.com";
-      // const url = "http://localhost:3000";
-      new CheckServiceMultiple(
-        [fsLogImpRepository, mongoLogImpRepository, postgreLogImpRepository],
-        () => console.log(`${url} is ok`),
-        (error) => console.log(error)
-      ).execute(url);
-      // new CheckService().execute("http://localhost:3000");
-    });
+    // CronService.createJob("*/5 * * * * *", () => {
+    //   const url = "https://google.com";
+    //   // const url = "http://localhost:3000";
+    //   new CheckServiceMultiple(
+    //     [fsLogImpRepository, mongoLogImpRepository, postgreLogImpRepository],
+    //     () => console.log(`${url} is ok`),
+    //     (error) => console.log(error)
+    //   ).execute(url);
+    //   // new CheckService().execute("http://localhost:3000");
+    // });
   }
 }
