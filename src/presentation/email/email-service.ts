@@ -30,14 +30,14 @@ const htmlBodyTemplate = `
   </div>
 `;
 
-interface SendEmailOptions {
+export interface SendEmailOptions {
   to: string | string[];
   subject: string;
   htmlBody: string;
   attachments?: Attachments[];
 }
 
-interface Attachments {
+export interface Attachments {
   filename: string;
   path: string;
 }
@@ -55,14 +55,13 @@ export class EmailService {
   async sendEmail(options: SendEmailOptions): Promise<boolean> {
     const { to, htmlBody, subject, attachments = [] } = options;
     try {
-      const sendInformation = await this.trasnporter.sendMail({
+      await this.trasnporter.sendMail({
         to,
         subject,
         html: htmlBody,
         attachments,
       });
 
-      console.log(sendInformation);
       return true;
     } catch (error) {
       return false;

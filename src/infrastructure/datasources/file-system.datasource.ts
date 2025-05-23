@@ -2,7 +2,7 @@ import fs, { appendFile, appendFileSync } from "fs";
 import { LogDatasource } from "../../domain/datasources/log.datasource";
 import { LogEntity, LogSeverityLevel } from "../../domain/entities/log.entity";
 
-export class fileSystemDatasource implements LogDatasource {
+export class FileSystemDatasource implements LogDatasource {
   private readonly logPath = "logs/";
   private readonly allLogsPath = "logs/logs-all.log";
   private readonly mediumLogsPath = "logs/logs-medium.log";
@@ -35,6 +35,7 @@ export class fileSystemDatasource implements LogDatasource {
     if (newLog.level === LogSeverityLevel.low) return;
     if (newLog.level === LogSeverityLevel.medium) {
       fs.appendFileSync(this.mediumLogsPath, logAsJson);
+      return;
     } else {
       fs.appendFileSync(this.highLogsPath, logAsJson);
     }

@@ -1,13 +1,13 @@
 import { CheckServiceMultiple } from "../domain/use-cases/index";
 import {
-  fileSystemDatasource,
+  FileSystemDatasource,
   LogImplRepository,
   MongoLogDatasource,
   PostgreLogDatasource,
 } from "../infrastructure/index";
 import { CronService, EmailService } from "./index";
 
-const fsLogImpRepository = new LogImplRepository(new fileSystemDatasource());
+const fsLogImpRepository = new LogImplRepository(new FileSystemDatasource());
 const mongoLogImpRepository = new LogImplRepository(new MongoLogDatasource());
 const postgreLogImpRepository = new LogImplRepository(
   new PostgreLogDatasource()
